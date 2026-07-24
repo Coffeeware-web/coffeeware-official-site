@@ -5,7 +5,7 @@ import {
   useTransform,
   useMotionValueEvent,
 } from 'motion/react'
-import { Code2, MessagesSquare, Gem, Rocket, HeartHandshake } from 'lucide-react'
+import { Workflow, Gem, CheckCircle2, Focus, MessagesSquare } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 type Value = {
@@ -16,34 +16,34 @@ type Value = {
 
 const VALUES: Value[] = [
   {
-    title: 'Codice su misura',
+    title: 'Partiamo dal vostro processo',
     description:
-      'Niente template preconfezionati: costruiamo ogni soluzione partendo dalle reali esigenze del progetto, riga dopo riga.',
-    Icon: Code2,
+      'Niente pacchetti da adattare: costruiamo su come lavorate davvero, riga dopo riga. Il punto di partenza siete voi, non un template.',
+    Icon: Workflow,
   },
   {
-    title: 'Comunicazione diretta',
+    title: 'Software che si usa davvero',
     description:
-      'Parli sempre con chi scrive il codice. Nessun intermediario, nessun reparto: aggiornamenti chiari e feedback rapidi.',
-    Icon: MessagesSquare,
+      'Costruiamo strumenti che finiscono usati ogni giorno, non nel cassetto. Se non vi semplifica il lavoro, non è finito.',
+    Icon: CheckCircle2,
   },
   {
-    title: 'Qualità e cura dei dettagli',
+    title: 'Cura in ogni livello',
     description:
-      'Dalla UX al database, curiamo ogni livello dello stack. Ci ossessioniamo per le piccole cose che fanno la differenza.',
+      'Dall’interfaccia ai dati, curiamo ogni strato. Le piccole cose sono quelle che vi fanno perdere o guadagnare tempo.',
     Icon: Gem,
   },
   {
-    title: 'Tecnologie moderne',
+    title: 'Diretti, senza intermediari',
     description:
-      'Lavoriamo con strumenti aggiornati e best practice attuali, così il tuo prodotto resta veloce, sicuro e manutenibile.',
-    Icon: Rocket,
+      'Parlate sempre con chi scrive il codice: aggiornamenti chiari, decisioni rapide, nessun reparto in mezzo.',
+    Icon: MessagesSquare,
   },
   {
-    title: 'Partnership a lungo termine',
+    title: 'Poche aziende, più attenzione',
     description:
-      'Non spariamo dopo il rilascio: restiamo al tuo fianco per far crescere ed evolvere il prodotto nel tempo.',
-    Icon: HeartHandshake,
+      'Seguiamo poche aziende alla volta, di persona, nel Nord-Est. Preferiamo fare bene poche cose che spargerci su troppe.',
+    Icon: Focus,
   },
 ]
 

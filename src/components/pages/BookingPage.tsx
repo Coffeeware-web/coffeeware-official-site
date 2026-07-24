@@ -29,6 +29,7 @@ export default function BookingPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
+    window.scrollTo(0, 0)
   }
 
   return (

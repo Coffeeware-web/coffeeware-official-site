@@ -11,6 +11,7 @@ type Member = {
   name: string
   role: string
   bio: string
+  photo?: string
   github?: string
   linkedin?: string
 }
@@ -18,15 +19,17 @@ type Member = {
 const MEMBERS: Member[] = [
   {
     name: 'Matteo',
-    role: 'Backend developer',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    role: 'Sviluppatore & co-fondatore',
+    bio: 'Si occupa della parte che non si vede: architettura, dati e integrazioni che tengono in piedi il prodotto. Gli piacciono i problemi dove c’è da far parlare sistemi nati per non capirsi.',
+    photo: '/img/coffee_breakers_matteo.png',
     github: 'https://github.com/MagnusGuagnus',
     linkedin: 'https://www.linkedin.com/in/matteo-magnaguagno-0b239726b/',
   },
   {
     name: 'Tommaso',
-    role: 'Frontend & UX Designer',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    role: 'Sviluppatore & co-fondatore',
+    bio: 'Disegna e costruisce la parte con cui il cliente parla ogni giorno: interfacce pulite, veloci e comprensibili. Convinto che un buon software si riconosca da quanto poco serve spiegarlo.',
+    photo: '/img/coffee_breakers_tommaso.png',
     github: 'https://github.com/niftyduck',
     linkedin: 'https://www.linkedin.com/in/tommaso-parlato-a64247221/',
   },
@@ -55,8 +58,8 @@ export default function TeamPage() {
               <span className="text-cw-secondary">;</span>
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cw-white/75">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Due sviluppatori, uno studio piccolo e diretto. Poche aziende
+              alla volta, seguite di persona, qui nel Nord-Est.
             </p>
           </div>
         </section>
@@ -74,14 +77,25 @@ export default function TeamPage() {
               {MEMBERS.map((m, i) => (
                 <Reveal key={m.name} delay={i * 0.08}>
                   <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-cw-black/10 bg-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-cw-secondary/40 hover:shadow-lg">
-                    {/* Branded image placeholder */}
-                    <div className="relative flex aspect-[4/3] items-center justify-center bg-cw-primary/10">
-                      <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-cw-primary/15 text-cw-primary">
-                        <User size={30} />
-                      </span>
-                      <span className="absolute bottom-3 left-3 rounded-full bg-cw-white/80 px-3 py-1 text-xs font-medium text-cw-gray">
-                        immagine
-                      </span>
+                    {/* Member photo (with placeholder fallback) */}
+                    <div className="relative flex h-72 items-center justify-center overflow-hidden bg-cw-primary/10 transition-[height] duration-500 ease-out group-hover:h-96">
+                      {m.photo ? (
+                        <img
+                          src={m.photo}
+                          alt={m.name}
+                          className="h-full w-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <>
+                          <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-cw-primary/15 text-cw-primary">
+                            <User size={30} />
+                          </span>
+                          <span className="absolute bottom-3 left-3 rounded-full bg-cw-white/80 px-3 py-1 text-xs font-medium text-cw-gray">
+                            immagine
+                          </span>
+                        </>
+                      )}
                     </div>
                     <div className="flex flex-1 flex-col p-6 md:p-7">
                       <h2 className="font-display text-xl font-semibold text-cw-black">

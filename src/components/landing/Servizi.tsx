@@ -1,8 +1,60 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import Reveal from './Reveal'
-import ServiceCard from './ServiceCard'
-import { SERVICES } from '../data/services'
+import { PILLARS } from '../data/services'
+import type { Pillar } from '../data/services'
+
+function PillarCard({ pillar }: { pillar: Pillar }) {
+  const Icon = pillar.icon
+  return (
+    <div
+      className={`flex h-full flex-col rounded-3xl border p-7 transition-all duration-300 md:p-8 ${
+        pillar.flag
+          ? 'border-cw-secondary/40 bg-cw-secondary/[0.12] shadow-[0_6px_24px_-6px_rgba(228,85,42,0.28)]'
+          : 'border-cw-black/[0.06] bg-white shadow-[0_4px_20px_-6px_rgba(28,43,48,0.12)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(28,43,48,0.18)]'
+      }`}
+    >
+      <div className="flex items-center justify-between">
+        <span
+          className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${
+            pillar.flag
+              ? 'bg-cw-secondary text-cw-white'
+              : 'bg-cw-secondary/15 text-cw-secondary'
+          }`}
+        >
+          <Icon size={24} />
+        </span>
+        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-cw-secondary">
+          {pillar.kicker}
+        </span>
+      </div>
+
+      <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-cw-black">
+        {pillar.title}
+        <span className="text-cw-secondary">;</span>
+      </h3>
+      <p className="mt-3 text-pretty text-base leading-relaxed text-cw-gray">
+        {pillar.blurb}
+      </p>
+
+      <ul className="mt-6 space-y-2.5 border-t border-cw-black/10 pt-6">
+        {pillar.items.slice(0, 4).map((item) => (
+          <li
+            key={item.title}
+            className="flex items-start gap-2.5 text-[15px] leading-snug text-cw-black"
+          >
+            <Check
+              size={18}
+              className="mt-0.5 shrink-0 text-cw-secondary"
+              aria-hidden
+            />
+            {item.title}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 export default function Servizi() {
   return (
@@ -14,15 +66,16 @@ export default function Servizi() {
             <span className="text-cw-secondary">;</span>
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-cw-gray">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Tre modi in cui lavoriamo. Di solito si parte dal primo, ma il
+            valore vero è spesso nel secondo. Partiamo sempre dal vostro
+            processo reale, mai da un pacchetto da adattare.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service, i) => (
-            <Reveal key={service.title} delay={i * 0.06}>
-              <ServiceCard service={service} />
+        <div className="mt-12 grid gap-5 md:grid-cols-3 md:items-stretch">
+          {PILLARS.map((pillar, i) => (
+            <Reveal key={pillar.title} delay={i * 0.08} className="h-full">
+              <PillarCard pillar={pillar} />
             </Reveal>
           ))}
         </div>

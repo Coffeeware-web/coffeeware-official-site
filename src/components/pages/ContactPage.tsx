@@ -7,7 +7,6 @@ import {
   MessageCircle,
   Phone,
   Clock,
-  Linkedin,
 } from 'lucide-react'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
@@ -17,36 +16,29 @@ const CONTACTS = [
   {
     icon: Mail,
     label: 'E-mail',
-    value: 'ciao@coffeeware.it',
-    href: 'mailto:ciao@coffeeware.it',
-    hint: 'Rispondiamo entro un giorno lavorativo.',
+    value: 'info@coffeewaredesigns.com',
+    href: 'mailto:info@coffeewaredesigns.com',
+    hint: 'Rispondiamo entro 24 ore.',
   },
   {
     icon: Phone,
     label: 'Telefono',
-    value: '+39 000 000 0000',
-    href: 'tel:+390000000000',
-    hint: 'Lun–Ven, negli orari di ufficio.',
+    value: '+39 388 499 4996',
+    href: 'tel:+393884994996',
+    hint: 'Per parlarne direttamente a voce.',
   },
   {
     icon: MessageCircle,
     label: 'WhatsApp',
     value: 'Scrivici su WhatsApp',
-    href: 'https://wa.me/390000000000',
+    href: 'https://wa.me/393884994996',
     hint: 'Per le domande veloci.',
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
-    value: '/company/coffeeware',
-    href: 'https://www.linkedin.com/company/coffeeware',
-    hint: 'Qui raccontiamo cosa stiamo costruendo.',
   },
 ]
 
 const DETAILS = [
-  { icon: MapPin, label: 'Dove siamo', lines: ['Via Esempio 1', '00000 Città (XX), Italia'] },
-  { icon: Clock, label: 'Quando ci trovi', lines: ['Lunedì – Venerdì', '9:00 – 18:00'] },
+  { icon: MapPin, label: 'Dove siamo', lines: ['Via Luigi Einaudi', 'Trento (TN), Italia'] },
+  { icon: Clock, label: 'Tempi di risposta', lines: ['Risposta entro 24 ore'] },
 ]
 
 export default function ContactPage() {

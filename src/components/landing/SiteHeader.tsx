@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
@@ -9,13 +9,7 @@ const NAV = [
   { label: 'Contatti', to: '/contatti' },
 ]
 
-type SiteHeaderProps = {
-  /** When true (homepage over the dark hero), links start light and turn dark on scroll. */
-  overHero?: boolean
-}
-
-export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
-  const [scrolled, setScrolled] = useState(false)
+export default function SiteHeader() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
 
@@ -31,24 +25,8 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
     }
   }
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // On non-hero pages the header always uses the solid/dark treatment.
-  const solid = scrolled || !overHero
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        solid
-          ? 'border-b border-cw-black/10 bg-cw-white/85 backdrop-blur-md'
-          : 'border-b border-transparent'
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-cw-white/10 bg-cw-primary">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 md:px-8">
         <Link
           to="/"
@@ -69,7 +47,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
               key={item.to}
               to={item.to}
               onClick={goTop(item.to)}
-              className={linkClass(solid)}
+              className="text-sm font-medium text-cw-white/75 transition-colors hover:text-cw-white"
             >
               {item.label}
             </Link>
@@ -82,16 +60,12 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
             onClick={goTop('/prenota')}
             className="hidden rounded-full bg-cw-secondary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:-translate-y-0.5 md:inline-flex"
           >
-            Prenota una call
+            Facciamo due chiacchiere
           </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border md:hidden ${
-              solid || open
-                ? 'border-cw-black/15 text-cw-black'
-                : 'border-cw-white/25 text-cw-white'
-            }`}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cw-white/25 text-cw-white md:hidden"
             aria-label={open ? 'Chiudi menu' : 'Apri menu'}
             aria-expanded={open}
           >
@@ -107,7 +81,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-cw-black/10 bg-cw-white md:hidden"
+            className="overflow-hidden border-t border-cw-white/10 bg-cw-primary md:hidden"
           >
             <nav className="flex flex-col px-5 py-4" aria-label="Mobile">
               {NAV.map((item) => (
@@ -115,7 +89,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
                   key={item.to}
                   to={item.to}
                   onClick={goTop(item.to)}
-                  className="border-b border-cw-black/5 py-3 text-base font-medium text-cw-black/80"
+                  className="border-b border-cw-white/10 py-3 text-base font-medium text-cw-white/80"
                 >
                   {item.label}
                 </Link>
@@ -125,7 +99,7 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
                 onClick={goTop('/prenota')}
                 className="mt-4 rounded-full bg-cw-secondary px-5 py-3 text-center text-base font-semibold text-white"
               >
-                Prenota una call
+                Facciamo due chiacchiere
               </Link>
             </nav>
           </motion.div>
@@ -133,10 +107,4 @@ export default function SiteHeader({ overHero = false }: SiteHeaderProps) {
       </AnimatePresence>
     </header>
   )
-}
-
-function linkClass(solid: boolean) {
-  return `text-sm font-medium transition-colors ${
-    solid ? 'text-cw-black/70 hover:text-cw-black' : 'text-cw-white/75 hover:text-cw-white'
-  }`
 }

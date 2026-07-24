@@ -12,13 +12,13 @@ const STEPS: Step[] = [
   {
     title: 'Ascolto e analisi',
     description:
-      'Partiamo dalle tue esigenze: capiamo obiettivi, vincoli e utenti prima di scrivere una sola riga di codice.',
+      'Partiamo dalle vostre esigenze: capiamo obiettivi, vincoli e utenti prima di scrivere una sola riga di codice.',
     Icon: Search,
   },
   {
     title: 'Design e prototipo',
     description:
-      'Trasformiamo le idee in flussi e interfacce concrete, così vedi il prodotto prima ancora che venga costruito.',
+      'Trasformiamo le idee in flussi e interfacce concrete, così vedete il prodotto prima ancora che venga costruito.',
     Icon: PencilRuler,
   },
   {
@@ -36,7 +36,7 @@ const STEPS: Step[] = [
   {
     title: 'Supporto continuo',
     description:
-      'Non spariamo dopo il lancio: restiamo al tuo fianco per far evolvere e crescere il prodotto nel tempo.',
+      'Non spariamo dopo il lancio: restiamo al vostro fianco per far evolvere e crescere il prodotto nel tempo.',
     Icon: LifeBuoy,
   },
 ]

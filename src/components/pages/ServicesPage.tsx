@@ -1,15 +1,10 @@
 import { useEffect } from 'react'
-import { ArrowRight } from 'lucide-react'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
-import Reveal from '../landing/Reveal'
 import ServicesShowcase from '../landing/ServicesShowcase'
 import CtaStrip from '../landing/CtaStrip'
-import { useContact } from '../contact/ContactContext'
 
 export default function ServicesPage() {
-  const { open: openContact } = useContact()
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -32,33 +27,16 @@ export default function ServicesPage() {
               <span className="text-cw-secondary">;</span>
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cw-white/75">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation.
+              Non un catalogo di pacchetti, ma un punto di partenza. Guardiamo
+              come lavorate, troviamo dove perdete tempo o clienti, e
+              costruiamo il pezzo che fa la differenza: dall&apos;automazione di
+              un processo a uno strumento che prima non esisteva.
             </p>
           </div>
         </section>
 
         {/* Services: sticky macro topics + vertical scroll of specifics */}
         <ServicesShowcase />
-
-        <section className="bg-cw-white pb-20 md:pb-28">
-          <div className="mx-auto max-w-6xl px-5 md:px-8">
-            <Reveal className="flex justify-center">
-              <button
-                type="button"
-                onClick={() => openContact('info')}
-                className="group inline-flex items-center gap-2 rounded-full bg-cw-secondary px-7 py-3.5 text-base font-semibold text-white transition-transform hover:-translate-y-0.5"
-              >
-                Richiedi informazioni
-                <ArrowRight
-                  size={18}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </button>
-            </Reveal>
-          </div>
-        </section>
 
         <CtaStrip />
       </main>

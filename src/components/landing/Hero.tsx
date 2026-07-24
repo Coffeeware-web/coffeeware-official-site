@@ -26,6 +26,16 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-cw-secondary"
+        >
+          Software su misura <span className="text-cw-white/50">·</span> Food
+          &amp; Beverage
+        </motion.p>
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,8 +54,8 @@ export default function Hero() {
           className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cw-white/75 md:text-xl"
         >
           Togliamo il lavoro manuale che rifate ogni settimana e costruiamo
-          strumenti nuovi che fanno vendere. Partiamo dal vostro processo, non
-          da un pacchetto.
+          strumenti nuovi che fanno vendere. Guardiamo come lavorate davvero e
+          partiamo da un primo pezzo funzionante in poche settimane.
         </motion.p>
 
         <motion.div
@@ -58,7 +68,7 @@ export default function Hero() {
             to="/contatti"
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-cw-secondary px-7 py-3.5 text-base font-semibold text-cw-white transition-transform hover:-translate-y-0.5"
           >
-            Prenota una call di 30 minuti
+            Facciamo due chiacchiere
             <ArrowRight
               size={18}
               className="transition-transform group-hover:translate-x-1"

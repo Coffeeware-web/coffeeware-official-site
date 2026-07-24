@@ -1,127 +1,10 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import {
-  ShoppingCart,
-  LayoutTemplate,
-  AppWindow,
-  Gauge,
-  Smartphone,
-  Bell,
-  Wifi,
-  Cloud,
-  Plug,
-  Wrench,
-  ShieldCheck,
-} from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Check } from 'lucide-react'
+import { PILLARS } from '../data/services'
+import type { Pillar, SubService } from '../data/services'
 
-type SubService = {
-  title: string
-  description: string
-  Icon: LucideIcon
-}
-
-type Topic = {
-  kicker: string
-  title: string
-  description: string
-  items: SubService[]
-}
-
-const TOPICS: Topic[] = [
-  {
-    kicker: 'Web Dev',
-    title: 'Sviluppo web',
-    description:
-      'Costruiamo prodotti web su misura, dal primo pixel al deploy. Scorri per vedere cosa possiamo realizzare.',
-    items: [
-      {
-        title: 'E-Commerce',
-        description:
-          'Negozi online completi con catalogo, carrello, pagamenti e gestione ordini, pensati per vendere davvero.',
-        Icon: ShoppingCart,
-      },
-      {
-        title: 'Sito vetrina',
-        description:
-          'Siti di presentazione veloci e curati per raccontare il tuo brand e convertire i visitatori in clienti.',
-        Icon: LayoutTemplate,
-      },
-      {
-        title: 'Web app',
-        description:
-          'Applicazioni web complesse e interattive, con logiche custom e integrazioni con i tuoi strumenti.',
-        Icon: AppWindow,
-      },
-      {
-        title: 'Dashboard & gestionali',
-        description:
-          'Pannelli di controllo e gestionali su misura per monitorare dati e automatizzare i processi interni.',
-        Icon: Gauge,
-      },
-    ],
-  },
-  {
-    kicker: 'Mobile',
-    title: 'App & mobile',
-    description:
-      'Esperienze mobile native e cross-platform che stanno nella tasca dei tuoi clienti.',
-    items: [
-      {
-        title: 'App iOS & Android',
-        description:
-          'Applicazioni mobile performanti e curate, pubblicate su App Store e Google Play.',
-        Icon: Smartphone,
-      },
-      {
-        title: 'Notifiche & engagement',
-        description:
-          'Push notification e flussi di engagement per riportare gli utenti dentro l’app al momento giusto.',
-        Icon: Bell,
-      },
-      {
-        title: 'PWA & offline',
-        description:
-          'Progressive web app installabili e funzionanti anche senza connessione, senza passare dagli store.',
-        Icon: Wifi,
-      },
-    ],
-  },
-  {
-    kicker: 'Cloud',
-    title: 'Cloud & consulenza',
-    description:
-      'Mettiamo in piedi e manteniamo l’infrastruttura che fa girare tutto, e ti affianchiamo nelle scelte tecniche.',
-    items: [
-      {
-        title: 'Infrastruttura & deploy',
-        description:
-          'Setup cloud, CI/CD e deploy automatici per rilasciare in sicurezza e senza downtime.',
-        Icon: Cloud,
-      },
-      {
-        title: 'Integrazioni & API',
-        description:
-          'Colleghiamo i tuoi sistemi con API custom e integrazioni con servizi di terze parti.',
-        Icon: Plug,
-      },
-      {
-        title: 'Manutenzione evolutiva',
-        description:
-          'Assistenza continua, aggiornamenti e nuove funzionalità per far crescere il prodotto nel tempo.',
-        Icon: Wrench,
-      },
-      {
-        title: 'Sicurezza & performance',
-        description:
-          'Audit, ottimizzazioni e best practice per mantenere il prodotto veloce, stabile e sicuro.',
-        Icon: ShieldCheck,
-      },
-    ],
-  },
-]
-
-function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
+function TopicBlock({ pillar, index }: { pillar: Pillar; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -136,6 +19,7 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
     [0, 1, 1, 0],
   )
   const titleY = useTransform(scrollYProgress, [0, 0.12], [24, 0])
+  const Icon = pillar.icon
 
   return (
     <div
@@ -147,12 +31,27 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
         style={{ opacity: titleOpacity, y: titleY }}
         className="md:sticky md:top-28 md:h-fit md:self-start"
       >
-        <h3 className="text-balance font-display text-4xl font-bold leading-[1.05] text-cw-black md:text-5xl">
-          {topic.title}
+        <div className="flex items-center gap-3">
+          <span
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${
+              pillar.flag
+                ? 'bg-cw-secondary text-cw-white'
+                : 'bg-cw-secondary/15 text-cw-secondary'
+            }`}
+          >
+            <Icon size={22} />
+          </span>
+          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-cw-secondary">
+            {pillar.kicker}
+          </span>
+        </div>
+
+        <h3 className="mt-5 text-balance font-display text-4xl font-bold leading-[1.05] text-cw-black md:text-5xl">
+          {pillar.title}
           <span className="text-cw-secondary">;</span>
         </h3>
         <p className="mt-5 max-w-md text-pretty text-lg leading-relaxed text-cw-gray">
-          {topic.description}
+          {pillar.blurb}
         </p>
 
         <div className="mt-8 flex items-center gap-4">
@@ -170,44 +69,45 @@ function TopicBlock({ topic, index }: { topic: Topic; index: number }) {
 
       {/* Right: vertical scroll of specific services */}
       <div className="flex flex-col gap-5">
-        {topic.items.map((item) => (
-          <FadeCard key={item.title} item={item} />
+        {pillar.items.map((item) => (
+          <FadeCard key={item.title} item={item} flag={pillar.flag} />
         ))}
       </div>
     </div>
   )
 }
 
-function FadeCard({ item }: { item: SubService }) {
+function FadeCard({ item, flag }: { item: SubService; flag?: boolean }) {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   })
   // Fade each card in as it enters the viewport and out as it leaves.
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.25, 0.75, 1],
-    [0, 1, 1, 0],
-  )
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0])
   const y = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [40, 0, 0, -40])
-  const Icon = item.Icon
 
   return (
     <motion.article
       ref={ref}
       style={{ opacity, y }}
-      className="group rounded-3xl border border-cw-black/10 bg-white/70 p-7 shadow-sm transition-colors hover:border-cw-secondary/40 md:p-8"
+      className="group rounded-3xl border border-cw-black/10 bg-white/70 p-6 shadow-sm transition-colors hover:border-cw-secondary/40 md:p-7"
     >
-      <div className="flex items-start gap-5">
-        <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cw-secondary/15 text-cw-secondary">
-          <Icon size={26} />
+      <div className="flex items-start gap-4">
+        <span
+          className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${
+            flag
+              ? 'bg-cw-secondary/20 text-cw-secondary'
+              : 'bg-cw-secondary/15 text-cw-secondary'
+          }`}
+        >
+          <Check size={22} />
         </span>
         <div>
-          <h4 className="font-display text-xl font-semibold text-cw-black md:text-2xl">
+          <h4 className="font-display text-lg font-semibold text-cw-black md:text-xl">
             {item.title}
           </h4>
-          <p className="mt-3 text-pretty text-base leading-relaxed text-cw-gray">
+          <p className="mt-2 text-pretty text-[15px] leading-relaxed text-cw-gray">
             {item.description}
           </p>
         </div>
@@ -220,8 +120,8 @@ export default function ServicesShowcase() {
   return (
     <section aria-label="I nostri servizi" className="bg-cw-white py-8 md:py-12">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        {TOPICS.map((topic, i) => (
-          <TopicBlock key={topic.title} topic={topic} index={i} />
+        {PILLARS.map((pillar, i) => (
+          <TopicBlock key={pillar.title} pillar={pillar} index={i} />
         ))}
       </div>
     </section>

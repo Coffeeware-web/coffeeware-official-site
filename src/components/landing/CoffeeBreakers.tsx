@@ -4,7 +4,7 @@ import Reveal from './Reveal'
 
 export default function CoffeeBreakers() {
   return (
-    <section id="coffee-breakers" className="scroll-mt-24 bg-cw-cream py-20 md:py-28">
+    <section id="coffee-breakers" className="scroll-mt-24 bg-[#FFFFF0] py-20 md:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2 md:gap-14 md:px-8">
         <Reveal>
           <h2 className="text-balance font-display text-3xl font-bold text-cw-black md:text-4xl">
@@ -12,13 +12,10 @@ export default function CoffeeBreakers() {
             <span className="text-cw-secondary">;</span>
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-cw-gray">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation.
-          </p>
-          <p className="mt-4 text-pretty text-base leading-relaxed text-cw-gray">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
+            Due sviluppatori che, davanti a un caffè, smontano il vostro
+            processo e capiscono dove si inceppa. Studio piccolo e diretto,
+            poche aziende alla volta, di persona quando serve, nel Nord-Est tra
+            Trentino, Veneto e Friuli.
           </p>
           <Link
             to="/team"
@@ -35,7 +32,7 @@ export default function CoffeeBreakers() {
         <Reveal delay={0.1}>
           <div className="relative overflow-hidden rounded-3xl border border-cw-black/10">
             <img
-              src="/img/coffee-breakers.png"
+              src="/img/coffee_breakers.png"
               alt="I due fondatori di Coffeeware al lavoro nello studio"
               className="aspect-[4/3] w-full object-cover"
               loading="lazy"

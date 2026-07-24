@@ -8,7 +8,6 @@ import CTAContattaci from "./CTAContattaci.tsx";
 import ContactForm from "./ContactForm.tsx";
 import Footer from "../layout/Footer.tsx";
 import ScrollToTop from "../layout/ScrollToTop.tsx";
-import TestimonialCarousel from "./TestimonialsCarosello.tsx";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -45,7 +44,6 @@ export default function Home() {
         <Servizi />
         <CTAContattaci />
         <ChiSiamoCTA />
-        <TestimonialCarousel />
         <FAQ />
         <ContactForm title="Contattaci ora." subtitle="Non esitare a contattarci per qualsiasi domanda o richiesta di preventivo."/>
         <DivisorioCreativo />

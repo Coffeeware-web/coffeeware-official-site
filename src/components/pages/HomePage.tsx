@@ -26,7 +26,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-cw-white">
-      <SiteHeader overHero />
+      <SiteHeader />
       <main>
         <Hero />
         <IntroProblema />
