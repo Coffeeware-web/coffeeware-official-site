@@ -48,7 +48,7 @@ export default function PrivacyPage() {
           <Section title="Chi è il titolare del trattamento">
             <p>
               Il trattamento è svolto in contitolarità da Matteo Magnaguagno
-              (P. IVA 04659400248) e Tommaso Parlato (P. IVA __________), che
+              (P. IVA 04659400248) e Tommaso Parlato (P. IVA 04659390241), che
               operano sotto il nome commerciale Coffeeware, con sede a Trento
               (TN). Puoi contattarci per qualsiasi richiesta relativa ai tuoi
               dati all&apos;indirizzo{' '}
