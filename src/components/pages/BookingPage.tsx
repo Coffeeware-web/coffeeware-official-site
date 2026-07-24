@@ -17,7 +17,8 @@ import { getTurnstileToken } from '../../lib/turnstile'
 
 type RequestType = 'call' | 'email'
 
-const API = (import.meta.env.VITE_API_BASE_URL as string | undefined) || ''
+// Fallback hardcoded: non è un dato sensibile (URL pubblico del backend).
+const API = (import.meta.env.VITE_API_BASE_URL as string | undefined) || 'https://coffeeware-react.onrender.com'
 
 const WEEKDAYS = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom']
 const MONTHS = [

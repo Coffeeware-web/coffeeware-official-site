@@ -43,10 +43,15 @@ function loadScript(): Promise<void> {
   return scriptPromise
 }
 
+// Fallback hardcoded: la site key di Turnstile è pubblica per design (va
+// incorporata nel client di qualunque sito la usi), quindi tenerla qui non
+// è un problema di sicurezza.
+const FALLBACK_SITE_KEY = '0x4AAAAAAD9AnzGUMPnK81p4'
+
 export async function getTurnstileToken(): Promise<string> {
-  const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined
-  // Senza site key (es. sviluppo locale) non blocchiamo: il server, se privo di
-  // secret, salta comunque la verifica.
+  const siteKey = (import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined) || FALLBACK_SITE_KEY
+  // Senza site key (es. sviluppo locale, se anche il fallback fosse vuoto) non
+  // blocchiamo: il server, se privo di secret, salta comunque la verifica.
   if (!siteKey) return ''
 
   await loadScript()

@@ -2,7 +2,10 @@ import React, { useState, useRef } from 'react';
 import styles from "./contactform.module.css";
 import mobileStyles from "./mobilecontainer.module.css";
 import PrivacyPolicy from "../layout/PrivacyPolicy.tsx";
-const apiBase = import.meta.env.VITE_API_BASE_URL ?? "";
+// Fallback hardcoded: non sono dati sensibili (URL pubblico del backend), e
+// tiene il sito funzionante a prescindere dalle variabili d'ambiente di build
+// su Cloudflare. import.meta.env.VITE_API_BASE_URL, se impostata, ha comunque priorità.
+const apiBase = import.meta.env.VITE_API_BASE_URL || "https://coffeeware-react.onrender.com";
 
 function ContactForm({ title, subtitle }: { title: string; subtitle: string }) {
     const form = useRef<HTMLFormElement>(null);
