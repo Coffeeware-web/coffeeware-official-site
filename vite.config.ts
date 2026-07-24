@@ -4,8 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 import Sitemap from 'vite-plugin-sitemap'
 
 const pages = [
-  '/chi-siamo',
-  '/services',
+  '/servizi',
+  '/team',
+  '/contatti',
+  '/prenota',
+  '/privacy',
 ]
 
 export default defineConfig({
