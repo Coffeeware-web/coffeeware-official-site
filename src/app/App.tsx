@@ -6,6 +6,7 @@ import ServicesPage from '../components/pages/ServicesPage'
 import TeamPage from '../components/pages/TeamPage'
 import ContactPage from '../components/pages/ContactPage'
 import BookingPage from '../components/pages/BookingPage'
+import PrivacyPage from '../components/pages/PrivacyPage'
 
 // On every route change land at the top of the page. Skip when navigating to
 // an in-page anchor (#hash), so those still scroll to their section.
@@ -28,6 +29,7 @@ function App() {
           <Route path="/team" element={<TeamPage />} />
           <Route path="/contatti" element={<ContactPage />} />
           <Route path="/prenota" element={<BookingPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </ContactProvider>
     </BrowserRouter>

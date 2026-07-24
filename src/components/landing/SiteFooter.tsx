@@ -80,9 +80,9 @@ export default function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-2 text-xs text-cw-white/60 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Coffeeware. Tutti i diritti riservati.</span>
-          <a href="#" className="transition-colors hover:text-cw-white">
+          <Link to="/privacy" className="transition-colors hover:text-cw-white">
             Privacy policy
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
