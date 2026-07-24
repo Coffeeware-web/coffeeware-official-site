@@ -169,6 +169,36 @@ export default function PrivacyPage() {
             </p>
           </Section>
 
+          <Section title="Protezione anti-bot (Cloudflare Turnstile)">
+            <p>
+              Il modulo di contatto è protetto da{' '}
+              <strong className="font-medium text-cw-black">
+                Cloudflare Turnstile
+              </strong>{' '}
+              in modalità invisibile: non devi risolvere alcun CAPTCHA. Per
+              distinguere le persone dai bot, Turnstile può raccogliere alcune
+              informazioni tecniche sul tuo dispositivo e sull&apos;interazione
+              con la pagina (ad esempio indirizzo IP e caratteristiche del
+              browser), senza usarle per profilarti o tracciarti a fini
+              pubblicitari.
+            </p>
+            <p>
+              Il servizio è fornito da Cloudflare, che agisce come responsabile
+              del trattamento; i dati possono essere trattati anche al di fuori
+              dell&apos;Unione Europea con le garanzie previste dal GDPR. Per
+              maggiori dettagli puoi consultare la{' '}
+              <a
+                href="https://www.cloudflare.com/privacypolicy/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-cw-primary underline"
+              >
+                Privacy Policy di Cloudflare
+              </a>
+              .
+            </p>
+          </Section>
+
           <Section title="Modifiche a questa informativa">
             <p>
               Possiamo aggiornare questa informativa nel tempo. La versione in
