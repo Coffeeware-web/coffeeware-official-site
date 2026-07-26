@@ -35,7 +35,7 @@ export default function SiteHeader() {
           aria-label="coffeeware home"
         >
           <img
-            src="/img/coffeeware-logo.png"
+            src="/img/coffeeware-logo.svg"
             alt="coffeeware"
             className="h-7 w-auto md:h-8"
           />
