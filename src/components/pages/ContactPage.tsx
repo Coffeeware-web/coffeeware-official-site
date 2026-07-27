@@ -8,6 +8,7 @@ import {
   Phone,
   Clock,
 } from 'lucide-react'
+import Seo from '../seo/Seo'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
 import Reveal from '../landing/Reveal'
@@ -44,6 +45,11 @@ const DETAILS = [
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-cw-white">
+      <Seo
+        title="Contatti — Parliamone davanti a un caffè | coffeeware;"
+        description="Scriveteci o chiamateci: rispondiamo entro un giorno lavorativo. Email, telefono, WhatsApp e dove ci trovate nel Nord-Est."
+        path="/contatti"
+      />
       <SiteHeader />
 
       <main className="mx-auto max-w-6xl px-5 pb-24 pt-28 md:px-8 md:pb-32 md:pt-36">

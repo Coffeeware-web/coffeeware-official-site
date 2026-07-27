@@ -10,6 +10,7 @@ import {
   ArrowLeft,
   Check,
 } from 'lucide-react'
+import Seo from '../seo/Seo'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
 import Reveal from '../landing/Reveal'
@@ -91,6 +92,11 @@ export default function BookingPage() {
 
   return (
     <div className="min-h-screen bg-cw-white">
+      <Seo
+        title="Prenota una call | coffeeware;"
+        description="Trenta minuti per capire se possiamo esservi utili: raccontateci come lavorate e vi diciamo cosa si può automatizzare o costruire. Nessun impegno."
+        path="/prenota"
+      />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-24 pt-28 md:px-8 md:pb-32 md:pt-36">
         {submitted ? (

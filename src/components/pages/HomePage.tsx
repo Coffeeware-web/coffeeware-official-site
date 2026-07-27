@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import Seo from '../seo/Seo'
 import SiteHeader from '../landing/SiteHeader'
 import Hero from '../landing/Hero'
 import IntroProblema from '../landing/IntroProblema'
@@ -26,6 +27,11 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-cw-white">
+      <Seo
+        title="Software su misura per il food & beverage | Coffeeware"
+        description="Creiamo software su misura per aziende del Nord-Est Italia: togliamo il lavoro manuale ripetitivo e costruiamo strumenti che fanno vendere. Partiamo dal vostro processo, non da un pacchetto."
+        path="/"
+      />
       <SiteHeader />
       <main>
         <Hero />

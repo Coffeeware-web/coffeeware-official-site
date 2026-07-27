@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Github, Linkedin, User } from 'lucide-react'
+import Seo from '../seo/Seo'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
 import Reveal from '../landing/Reveal'
@@ -42,6 +43,11 @@ export default function TeamPage() {
 
   return (
     <div className="min-h-screen bg-cw-white">
+      <Seo
+        title="Il team — Chi sono i Coffee Breakers | Coffeeware"
+        description="Siamo un piccolo team del Nord-Est che costruisce software su misura per chi produce food & beverage. Ecco chi lavorerà davvero al vostro progetto e come lavoriamo."
+        path="/team"
+      />
       <SiteHeader />
       <main>
         {/* Page hero */}

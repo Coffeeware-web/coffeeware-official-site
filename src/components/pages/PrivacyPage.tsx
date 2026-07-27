@@ -1,3 +1,4 @@
+import Seo from '../seo/Seo'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
 
@@ -23,6 +24,11 @@ function Section({
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-cw-white">
+      <Seo
+        title="Privacy policy | Coffeeware"
+        description="Come trattiamo i dati personali raccolti tramite questo sito: finalità, base giuridica, conservazione e come esercitare i vostri diritti."
+        path="/privacy"
+      />
       <SiteHeader />
       <main>
         {/* Header */}

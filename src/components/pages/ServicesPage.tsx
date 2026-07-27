@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Seo from '../seo/Seo'
 import SiteHeader from '../landing/SiteHeader'
 import SiteFooter from '../landing/SiteFooter'
 import ServicesShowcase from '../landing/ServicesShowcase'
@@ -11,6 +12,11 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-cw-white">
+      <Seo
+        title="Servizi — Automazione e software su misura | Coffeeware"
+        description="Automazione dei processi, configuratori di prodotto, gestionali su misura: guardiamo come lavorate, troviamo dove perdete tempo o clienti e costruiamo il pezzo che fa la differenza."
+        path="/servizi"
+      />
       <SiteHeader />
       <main>
         {/* Page hero */}
