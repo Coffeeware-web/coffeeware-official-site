@@ -61,14 +61,14 @@ export default function Servizi() {
     <section id="servizi" className="scroll-mt-24 bg-cw-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="max-w-2xl">
-          <h2 className="text-balance font-display text-3xl font-bold text-cw-black md:text-4xl">
+          <h2 className="text-balance font-display text-4xl font-bold text-cw-black md:text-4xl">
             Cosa possiamo costruire per voi
             <span className="text-cw-secondary">;</span>
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-cw-gray">
-            Tre modi in cui lavoriamo. Di solito si parte dal primo, ma il
-            valore vero è spesso nel secondo. Partiamo sempre dal vostro
-            processo reale, mai da un pacchetto da adattare.
+           Togliere il lavoro manuale che vi rallenta, aggiungere strumenti che vi fanno vendere,
+            tenere in piedi la base su cui girano tutti e due. Da dove conviene partire lo capiamo guardando
+            come lavorate.
           </p>
         </Reveal>
 

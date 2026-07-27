@@ -20,7 +20,7 @@ export default function CtaStrip() {
             Facciamo due chiacchiere, beviamoci un caffè insieme
             <span className="text-cw-secondary">;</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-lg leading-relaxed text-cw-white/75">
+          <p className="mx-auto mt-5 max-w-xl text-pretty text-md leading-relaxed text-cw-white/75">
             Se ogni settimana rifate a mano un lavoro che potrebbe farsi da
             solo, parliamone. Mezz&apos;ora basta per capire se c&apos;è
             qualcosa da fare, senza impegno.

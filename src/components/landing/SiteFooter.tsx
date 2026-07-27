@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { Mail, MessageCircle, Phone } from 'lucide-react'
-import Wordmark from './Wordmark'
 
 const NAV = [
   { label: 'Servizi', to: '/servizi' },
@@ -29,7 +28,11 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid gap-10 border-t border-cw-white/15 pt-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div className="max-w-sm">
-            <Wordmark className="text-2xl" />
+            <img
+                src="/img/coffeeware-logo.svg"
+                alt="coffeeware"
+                className="h-7 w-auto md:h-8"
+            />
             <p className="mt-3 text-sm leading-relaxed text-cw-white/70">
               Software su misura per chi produce food &amp; beverage. Nord-Est
               Italia, dal vostro processo a uno strumento che lavora per voi.

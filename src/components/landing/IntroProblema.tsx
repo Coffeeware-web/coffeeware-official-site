@@ -2,14 +2,18 @@ import type { ReactNode } from 'react'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import Reveal from './Reveal'
+import PenUnderline from './PenUnderline'
 
 const PAIN_POINTS: { before: string; mark: string }[] = [
   { before: 'Ordini ricopiati ', mark: 'a mano' },
   { before: 'Informazioni nella testa di ', mark: 'una persona sola' },
+  { before: 'Il database  vive ', mark: 'su un foglio Excel' },
   { before: 'Errori sempre ', mark: 'nello stesso punto' },
   { before: 'Listini aggiornati ', mark: 'a memoria' },
+  { before: 'Preventivo svolto ', mark: 'copiando quello vecchio' },
+  { before: 'Prenotazioni effettuate ', mark: 'tramite Whatsapp' },
   { before: 'Disponibilità che ', mark: 'nessuno sa davvero' },
-  { before: 'Ogni ordine confermato ', mark: 'al telefono' },
+  { before: 'Ordini confermati ', mark: 'al telefono' },
 ]
 
 const INTERVAL = 2200
@@ -21,7 +25,7 @@ function Marker({ children }: { children: ReactNode }) {
         aria-hidden
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
-        transition={{ duration: 0.45, delay: 0.25, ease: 'easeOut' }}
+        transition={{ duration: 0.55, delay: 0.30, ease: 'easeOut' }}
         className="absolute inset-x-[-0.15em] bottom-[0.05em] top-[45%] z-0 origin-left rounded-[2px] bg-cw-secondary/25"
       />
       <span className="relative z-10">{children}</span>
@@ -46,7 +50,7 @@ export default function IntroProblema() {
     <section className="bg-[#F3DCAF] py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-5 text-center md:px-8">
         <Reveal>
-          <h2 className="text-balance font-display text-3xl font-semibold leading-tight text-cw-black md:text-4xl">
+          <h2 className="text-balance font-display text-4xl font-semibold leading-tight text-cw-black md:text-4xl">
             Carta, fogli di calcolo ed email reggono l&apos;azienda.{' '}
             <span className="text-cw-secondary">
               Finché non crescono i volumi.
@@ -73,7 +77,7 @@ export default function IntroProblema() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="text-xl font-medium leading-snug text-cw-black md:text-2xl"
+                className="text-3xl font-medium leading-snug text-cw-black md:text-3xl"
               >
                 {point.before}
                 <Marker>{point.mark}</Marker>
@@ -84,7 +88,7 @@ export default function IntroProblema() {
 
         <Reveal delay={0.2}>
           <p className="mt-12 text-lg font-semibold leading-relaxed text-cw-black">
-            Noi partiamo esattamente da lì.
+            <PenUnderline>Noi partiamo esattamente da lì.</PenUnderline>
           </p>
         </Reveal>
       </div>

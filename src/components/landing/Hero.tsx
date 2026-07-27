@@ -51,7 +51,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cw-white/75 md:text-xl"
+          className="mt-6 max-w-2xl text-pretty text-md leading-relaxed text-cw-white/75 md:text-xl"
         >
           Togliamo il lavoro manuale che rifate ogni settimana e costruiamo
           strumenti nuovi che fanno vendere. Guardiamo come lavorate davvero e
@@ -66,7 +66,7 @@ export default function Hero() {
         >
           <Link
             to="/contatti"
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-cw-secondary px-7 py-3.5 text-base font-semibold text-cw-white transition-transform hover:-translate-y-0.5"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-cw-secondary px-7 py-3.5 text-base font-semibold text-white transition-transform hover:-translate-y-0.5"
           >
             Facciamo due chiacchiere
             <ArrowRight

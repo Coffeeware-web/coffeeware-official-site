@@ -31,7 +31,7 @@ function Row({ direction }: { direction: 'right' | 'left' }) {
         >
           {word}
           <span className="ml-6 text-cw-secondary" aria-hidden>
-            ;
+            •
           </span>
         </span>
       ))}
