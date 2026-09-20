@@ -52,6 +52,11 @@
     background-color: var(--color-cw-secondary);
     color: #fff;
   }
+  /* Tailwind v4 non mette piu cursor:pointer sui button nel preflight. */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 @keyframes marquee-right {
@@ -83,6 +88,30 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee-right,
   .animate-marquee-left {
+    animation: none;
+  }
+}
+
+@keyframes nudge-x {
+  0%,
+  55%,
+  100% {
+    transform: translateX(0) scale(1);
+  }
+  70% {
+    transform: translateX(0.28rem) scale(1.18) rotate(10deg);
+  }
+  85% {
+    transform: translateX(0) scale(1) rotate(-10deg);
+  }
+}
+
+.animate-nudge-x {
+  animation: nudge-x 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-nudge-x {
     animation: none;
   }
 }

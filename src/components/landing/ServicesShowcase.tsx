@@ -31,20 +31,10 @@ function TopicBlock({ pillar, index }: { pillar: Pillar; index: number }) {
         style={{ opacity: titleOpacity, y: titleY }}
         className="md:sticky md:top-28 md:h-fit md:self-start"
       >
-        <div className="flex items-center gap-3">
-          <span
-            className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${
-              pillar.flag
-                ? 'bg-cw-secondary text-cw-white'
-                : 'bg-cw-secondary/15 text-cw-secondary'
-            }`}
-          >
-            <Icon size={22} />
-          </span>
-          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-cw-secondary">
-            {pillar.kicker}
-          </span>
-        </div>
+        <span className="inline-flex items-center gap-2 rounded-full bg-cw-secondary px-4 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white">
+          <Icon size={15} className="shrink-0 text-white" aria-hidden />
+          {pillar.kicker}
+        </span>
 
         <h3 className="mt-5 text-balance font-display text-4xl font-bold leading-[1.05] text-cw-black md:text-5xl">
           {pillar.title}
@@ -91,7 +81,7 @@ function FadeCard({ item, flag }: { item: SubService; flag?: boolean }) {
     <motion.article
       ref={ref}
       style={{ opacity, y }}
-      className="group rounded-3xl border border-cw-black/10 bg-white/70 p-6 shadow-sm transition-colors hover:border-cw-secondary/40 md:p-7"
+      className="group rounded-4xl border border-cw-black/15 bg-white/60 p-6 transition-colors hover:border-cw-secondary md:p-6"
     >
       <div className="flex items-start gap-4">
         <span
@@ -104,7 +94,7 @@ function FadeCard({ item, flag }: { item: SubService; flag?: boolean }) {
           <Check size={22} />
         </span>
         <div>
-          <h4 className="font-display text-lg font-semibold text-cw-black md:text-xl">
+          <h4 className="font-display text-2xl font-bold text-cw-black">
             {item.title}
           </h4>
           <p className="mt-2 text-pretty text-[15px] leading-relaxed text-cw-gray">

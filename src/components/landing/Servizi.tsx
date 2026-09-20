@@ -1,10 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Check } from 'lucide-react'
 import Reveal from './Reveal'
+import {ArrowLeft, ArrowRight, Check} from 'lucide-react'
 import { PILLARS } from '../data/services'
 import type { Pillar } from '../data/services'
 
-function PillarCard({ pillar }: { pillar: Pillar }) {
+/*function PillarCard({ pillar }: { pillar: Pillar }) {
   const Icon = pillar.icon
   return (
     <div
@@ -60,14 +61,16 @@ export default function Servizi() {
   return (
     <section id="servizi" className="scroll-mt-24 bg-cw-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <Reveal className="max-w-2xl">
-          <h2 className="text-balance font-display text-4xl font-bold text-cw-black md:text-4xl">
-            Cosa possiamo costruire per voi
-            <span className="text-cw-secondary">;</span>
+        <Reveal className="">
+          <h2 className="text-balance font-display font-bold text-4xl text-cw-black md:text-4xl">
+            Cosa possiamo costruire per voi.
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-cw-gray">
+          <h2 className="mt-1 text-balance font-display font-semibold text-4xl md:text-4xl text-cw-secondary">
+            I tre pilastri del nostro lavoro;
+          </h2>
+          <p className="mt-5 max-w-4xl text-balance text-lg leading-relaxed text-cw-gray">
            Togliere il lavoro manuale che vi rallenta, aggiungere strumenti che vi fanno vendere,
-            tenere in piedi la base su cui girano tutti e due. Da dove conviene partire lo capiamo guardando
+            o tenere in piedi la base su cui girano tutti e due? Da dove conviene partire lo capiamo guardando
             come lavorate.
           </p>
         </Reveal>
@@ -95,4 +98,135 @@ export default function Servizi() {
       </div>
     </section>
   )
+}
+*/
+
+function ServiceListElement({ text }: { text: string }) {
+  return (
+      <div className={"py-2 px-3 grid grid-cols-12 bg-white/60 rounded-3xl border-cw-black/15 border-1 my-1"}>
+        <div className={"col-span-1"}>
+            <span
+                className={`text-cw-secondary`}>
+          <Check size={25}/>
+        </span>
+        </div>
+        <div className={"font-bold font-display col-span-10"}>
+          {text}
+        </div>
+      </div>
+  );
+}
+
+function PillarSlide({ pillar }: { pillar: Pillar }) {
+  const Icon = pillar.icon
+
+  return (
+      <div className={"grid gap-5 md:grid-cols-12 md:items-center"}>
+        <div className={"order-2 md:order-1 md:col-span-6"}>
+          {pillar.items.slice(0, 5).map((item) => (
+              <ServiceListElement key={item.title} text={item.title} />
+          ))}
+        </div>
+        <div className={"order-1 md:order-2 md:col-span-5"}>
+          <span
+              className={"mb-2 inline-flex items-center gap-2 rounded-full bg-cw-secondary px-4 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white"}>
+            <Icon size={15} className={"shrink-0 text-white"} aria-hidden />
+            {pillar.kicker}
+          </span>
+          <h3 className={"font-display font-bold text-4xl text-cw-black "}>
+            {pillar.title}
+            <span className={"text-cw-secondary"}>;</span>
+          </h3>
+          <p className={"text-gray-600 mt-3 text-sm"}>
+            {pillar.blurb}
+          </p>
+        </div>
+      </div>
+  );
+}
+
+export default function Servizi() {
+  const [index, setIndex] = useState(0)
+  const [hint, setHint] = useState(true)
+  const count = PILLARS.length
+
+  const go = (next: number) => {
+    setHint(false)
+    setIndex((next + count) % count)
+  }
+
+  return (
+      <section id="servizi" className="scroll-mt-24 bg-cw-white py-30 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <Reveal>
+            <h2 className="mb-20 text-center font-display font-bold text-4xl text-cw-black md:text-4xl">
+              Cosa possiamo costruire per voi<span className={"text-cw-secondary"}>;</span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.1} className="grid gap-5 md:grid-cols-12 md:items-center">
+            <div className="overflow-hidden md:col-span-11">
+              <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${index * 100}%)` }}
+              >
+                {PILLARS.map((pillar) => (
+                    <div key={pillar.title} className="w-full shrink-0 px-1">
+                      <PillarSlide pillar={pillar} />
+                    </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-row-reverse justify-center md:col-span-1 md:flex-col md:justify-center gap-3">
+              <button
+                  type="button"
+                  onClick={() => go(index + 1)}
+                  aria-label="Slide successiva"
+                  className={"group inline-flex h-11 w-11 items-center justify-center rounded-full border border-cw-black/15 text-cw-black bg-cw-secondary transition-colors hover:border-cw-black/60"}
+              >
+                  <ArrowRight
+                      size={20}
+                      className={`transition-transform group-hover:translate-x-1 ${
+                          hint ? 'animate-nudge-x' : ''
+                      }`}
+                  />
+              </button>
+              <button
+                  type="button"
+                  onClick={() => go(index - 1)}
+                  aria-label="Slide precedente"
+                  className={"inline-flex h-11 w-11 items-center justify-center rounded-full border border-cw-black/15 text-cw-black bg-white transition-colors hover:border-cw-black/60"}
+              >
+                <ArrowLeft size={20} />
+              </button>
+            </div>
+          </Reveal>
+          <Reveal delay={0.2} className="mt-10 flex justify-center">
+              <Link to="/servizi"
+                    className="group inline-flex items-center gap-2 rounded-full border border-cw-black/15 bg-white/60 px-5 py-2 text-sm font-semibold text-cw-black transition-colors hover:border-cw-black/30"
+              >
+                  Vedi tutti i servizi
+              </Link>
+          </Reveal>
+
+          <Reveal delay={0.25} className="mt-10 flex items-center justify-center gap-2.5">
+            {PILLARS.map((pillar, i) => (
+                <button
+                    key={pillar.title}
+                    type="button"
+                    onClick={() => go(i)}
+                    aria-label={`Vai a ${pillar.title}`}
+                    aria-current={i === index}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                        i === index
+                            ? 'w-7 bg-cw-secondary'
+                            : 'w-2.5 bg-cw-black/20 hover:bg-cw-black/40'
+                    }`}
+                />
+            ))}
+          </Reveal>
+        </div>
+      </section>
+  );
 }

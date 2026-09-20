@@ -32,7 +32,7 @@ export default function ServicesPage() {
               Cosa possiamo costruire per voi
               <span className="text-cw-secondary">;</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-cw-white/75">
+            <p className="mt-6 max-w-2xl text-pretty text-md leading-relaxed text-cw-white/75">
               Non un catalogo di pacchetti, ma un punto di partenza. Guardiamo
               come lavorate, troviamo dove perdete tempo o clienti, e
               costruiamo il pezzo che fa la differenza: dall&apos;automazione di

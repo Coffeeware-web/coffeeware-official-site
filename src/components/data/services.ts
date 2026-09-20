@@ -5,9 +5,9 @@ import {
   Tag,
   ShoppingBag,
   Globe,
-  Workflow,
+  Zap,
   Sparkles,
-  Server,
+  LayoutPanelTop,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -25,16 +25,13 @@ export type Pillar = {
   flag?: boolean
 }
 
-// Home "Cosa facciamo" (in breve) + pagina Servizi (completa) leggono da qui.
-// Voci ordinate per rilevanza F&B: la home mostra le prime, la pagina Servizi tutte.
-// Definizione estesa nel vault → 60 Coffeeware/Marketing/Definire i servizi di Coffeeware.
 export const PILLARS: Pillar[] = [
   {
-    icon: Workflow,
+    icon: Zap,
     kicker: 'Da dove si parte',
     title: 'Automatizzare il processo',
     blurb:
-      'Togliamo il lavoro manuale dove perdete tempo o sbagliate. Non un pacchetto da adattare: i punti dolenti del vostro processo.',
+      'Analizziamo il vostro modo di lavorare e digitalizziamo tutte le azioni che vi rallentano. Non stravolgiamo il vostro modo di lavorare, ma lo rendiamo facile come bere una tazza di caffè.',
     items: [
       {
         title: 'Portale ordini B2B',
@@ -44,12 +41,12 @@ export const PILLARS: Pillar[] = [
       {
         title: 'Gestionale su misura',
         description:
-          'Ordini, clienti, prodotti e stato dei lavori in un posto solo, con la logica del vostro processo, al posto di Excel sparsi.',
+          'Ordini, clienti, prodotti e stato dei lavori in un posto solo, con la logica del vostro processo: diciamo addio agli Excel sparsi.',
       },
       {
         title: 'Gestione prenotazioni',
         description:
-          'Disponibilità in tempo reale, conferme e promemoria automatici per visite, degustazioni ed eventi, senza doppie prenotazioni.',
+          'Disponibilità in tempo reale, conferme e promemoria automatici per visite, eventi, degustazioni, senza doppie prenotazioni.',
       },
       {
         title: 'E-label UE e etichetta digitale',
@@ -74,7 +71,7 @@ export const PILLARS: Pillar[] = [
       {
         title: 'Adempimenti e accise',
         description:
-          'Registri e scadenze normative — es. il registro telematico delle distillerie — gestiti senza rincorse manuali.',
+          'Registri e scadenze normative, come il registro telematico delle distillerie, gestiti senza rincorse manuali.',
       },
       {
         title: 'Integrazioni e API',
@@ -89,7 +86,7 @@ export const PILLARS: Pillar[] = [
       {
         title: 'Notifiche automatiche',
         description:
-          'Conferme e promemoria via email o WhatsApp legati agli eventi — ordine ricevuto, spedito, in consegna — al posto delle telefonate.',
+          'Conferme e promemoria via email o WhatsApp legati agli eventi: ordine ricevuto, spedito, in consegna. Niente più telefonate o email manuali.',
       },
       {
         title: 'CRM leggero',
@@ -106,11 +103,16 @@ export const PILLARS: Pillar[] = [
   {
     icon: Sparkles,
     kicker: 'Il pezzo che vale di più',
-    title: 'Capacità nuove che fanno vendere',
+    title: 'Capacità nuove che vendono',
     blurb:
-      'Strumenti che oggi non potete avere, che arrivano fino al cliente finale: per esempio un configuratore con cui il cliente personalizza il prodotto da solo.',
+      'Troviamo soluzioni ad-hoc per il vostro processo, anche se questo vuol dire costruire uno strumento che prima non esisteva. Il risultato? Un potente software per vendere, non solo per lavorare meglio.',
     flag: true,
     items: [
+      {
+        title: 'Intelligenza Artificiale',
+        description:
+            'Strumenti che leggono, scrivono e ragionano sui dati per fare cose che prima richiedevano un umano: dalla generazione di testi, analisi e previsioni ai chatbot per l\'assistenza virtuale.',
+      },
       {
         title: 'Configuratore di prodotto',
         description:
@@ -119,7 +121,7 @@ export const PILLARS: Pillar[] = [
       {
         title: 'E-commerce e vendita diretta',
         description:
-          'Un negozio online attorno al vostro prodotto — catalogo, pagamenti, spedizioni — per vendere al cliente finale e tenervi il margine.',
+          'Un negozio online attorno al vostro prodotto (catalogo, pagamenti, spedizioni) per vendere al cliente finale e tenervi il margine.',
       },
       {
         title: 'Web app su misura',
@@ -159,16 +161,16 @@ export const PILLARS: Pillar[] = [
     ],
   },
   {
-    icon: Server,
+    icon: LayoutPanelTop,
     kicker: 'Il fondamento',
     title: 'La base digitale affidabile',
     blurb:
-      'L’infrastruttura sotto ai vostri strumenti, gestita da chi l’ha costruita. E dopo il lancio non spariamo.',
+      'Nessuna innovazione digitale si fa senza una degna base: la mettiamo in piedi e la manteniamo, così il vostro lavoro non si ferma mai.',
     items: [
       {
         title: 'Sito e presenza online',
         description:
-          'Il canale da cui arrivano richieste vere — contatti, ordini, prenotazioni — non una brochure ferma.',
+          'Il canale da cui arrivano richieste vere: contatti, ordini e prenotazioni. Non una brochure ferma.',
       },
       {
         title: 'Hosting, dominio ed email',

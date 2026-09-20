@@ -40,7 +40,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="max-w-4xl text-balance text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl"
+          className="max-w-4xl text-balance text-5xl font-bold leading-[1.05] md:text-6xl lg:text-7xl"
         >
           Software su misura per chi produce food{' '}
           <span className="text-cw-secondary">&amp;</span> beverage
