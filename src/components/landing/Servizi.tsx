@@ -137,7 +137,7 @@ function PillarSlide({ pillar }: { pillar: Pillar }) {
             {pillar.title}
             <span className={"text-cw-secondary"}>;</span>
           </h3>
-          <p className={"text-gray-600 mt-3 text-sm"}>
+          <p className={"text-gray-600 mt-3 text-md"}>
             {pillar.blurb}
           </p>
         </div>

@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import { Check } from 'lucide-react'
 import { PILLARS } from '../data/services'
 import type { Pillar, SubService } from '../data/services'
 
@@ -76,6 +75,7 @@ function FadeCard({ item, flag }: { item: SubService; flag?: boolean }) {
   // Fade each card in as it enters the viewport and out as it leaves.
   const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0])
   const y = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [40, 0, 0, -40])
+  const Icon = item.icon
 
   return (
     <motion.article
@@ -85,13 +85,11 @@ function FadeCard({ item, flag }: { item: SubService; flag?: boolean }) {
     >
       <div className="flex items-start gap-4">
         <span
-          className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${
-            flag
-              ? 'bg-cw-secondary/20 text-cw-secondary'
-              : 'bg-cw-secondary/15 text-cw-secondary'
-          }`}
+          className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-cw-secondary transition-colors ${
+            flag ? 'bg-cw-secondary/20' : 'bg-cw-secondary/15'
+          } group-hover:bg-cw-secondary group-hover:text-cw-white`}
         >
-          <Check size={22} />
+          <Icon size={22} />
         </span>
         <div>
           <h4 className="font-display text-2xl font-bold text-cw-black">

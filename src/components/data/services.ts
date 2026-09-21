@@ -1,17 +1,42 @@
 import {
-  SlidersHorizontal,
+  AppWindow,
+  Bell,
+  Bot,
+  BookOpen,
+  Briefcase,
+  Cable,
   CalendarCheck,
-  PackageSearch,
-  Tag,
-  ShoppingBag,
+  ClipboardList,
+  Cloud,
+  Database,
+  FileText,
+  Gift,
   Globe,
-  Zap,
-  Sparkles,
+  LayoutDashboard,
   LayoutPanelTop,
+  PackageSearch,
+  QrCode,
+  Scale,
+  Search,
+  Server,
+  ShieldCheck,
+  ShoppingBag,
+  ShoppingCart,
+  SlidersHorizontal,
+  Smartphone,
+  Sparkles,
+  Store,
+  Tag,
+  Ticket,
+  Users,
+  Wine,
+  Wrench,
+  Zap,
   type LucideIcon,
 } from 'lucide-react'
 
 export type SubService = {
+  icon: LucideIcon
   title: string
   description: string
 }
@@ -34,66 +59,79 @@ export const PILLARS: Pillar[] = [
       'Analizziamo il vostro modo di lavorare e digitalizziamo tutte le azioni che vi rallentano. Non stravolgiamo il vostro modo di lavorare, ma lo rendiamo facile come bere una tazza di caffè.',
     items: [
       {
+        icon: Store,
         title: 'Portale ordini B2B',
         description:
           'Rivenditori e distributori vedono il loro listino e ordinano da soli 24/7; l’ordine arriva già pronto da evadere.',
       },
       {
+        icon: ClipboardList,
         title: 'Gestionale su misura',
         description:
           'Ordini, clienti, prodotti e stato dei lavori in un posto solo, con la logica del vostro processo: diciamo addio agli Excel sparsi.',
       },
       {
+        icon: CalendarCheck,
         title: 'Gestione prenotazioni',
         description:
           'Disponibilità in tempo reale, conferme e promemoria automatici per visite, eventi, degustazioni, senza doppie prenotazioni.',
       },
       {
+        icon: QrCode,
         title: 'E-label UE e etichetta digitale',
         description:
           'L’etichetta elettronica a norma dietro un QR: ingredienti e valori, multilingua, aggiornabile senza ristampare.',
       },
       {
+        icon: LayoutDashboard,
         title: 'Dashboard e reportistica',
         description:
           'Vendite, magazzino e scadenze in una vista sintetica aggiornata da sola: «come andiamo?» in dieci secondi.',
       },
       {
+        icon: PackageSearch,
         title: 'Magazzino, lotti e tracciabilità',
         description:
           'Sapere cosa c’è, dov’è e a quale lotto appartiene, per risalire in un attimo a un controllo o un richiamo.',
       },
       {
+        icon: FileText,
         title: 'Automazione documenti',
         description:
           'DDT, listini, offerte e conferme generati in automatico dai dati già inseriti, senza ricompilare moduli.',
       },
       {
+        icon: Scale,
         title: 'Adempimenti e accise',
         description:
           'Registri e scadenze normative, come il registro telematico delle distillerie, gestiti senza rincorse manuali.',
       },
       {
+        icon: Cable,
         title: 'Integrazioni e API',
         description:
           'Colleghiamo i software che già avete e non si parlano, così un dato inserito una volta finisce dove serve.',
       },
       {
+        icon: Database,
         title: 'Migrazione e import dati',
         description:
           'Portiamo dentro lo storico da vecchi Excel o gestionali abbandonati, pulito, senza reinserirlo a mano.',
       },
       {
+        icon: Bell,
         title: 'Notifiche automatiche',
         description:
           'Conferme e promemoria via email o WhatsApp legati agli eventi: ordine ricevuto, spedito, in consegna. Niente più telefonate o email manuali.',
       },
       {
+        icon: Users,
         title: 'CRM leggero',
         description:
           'Contatti, storico e stato della relazione in un archivio unico, per non perdere i follow-up.',
       },
       {
+        icon: Briefcase,
         title: 'App per la rete vendita',
         description:
           'Gli agenti raccolgono ordini in fiera o dal cliente, anche offline, e finiscono dritti nel gestionale.',
@@ -109,51 +147,61 @@ export const PILLARS: Pillar[] = [
     flag: true,
     items: [
       {
+        icon: Bot,
         title: 'Intelligenza Artificiale',
         description:
             'Strumenti che leggono, scrivono e ragionano sui dati per fare cose che prima richiedevano un umano: dalla generazione di testi, analisi e previsioni ai chatbot per l\'assistenza virtuale.',
       },
       {
+        icon: SlidersHorizontal,
         title: 'Configuratore di prodotto',
         description:
           'Un editor guidato che porta il cliente finale dalla personalizzazione all’ordine e vi restituisce un file pronto per la produzione, senza rimpalli via email col grafico.',
       },
       {
+        icon: ShoppingBag,
         title: 'E-commerce e vendita diretta',
         description:
           'Un negozio online attorno al vostro prodotto (catalogo, pagamenti, spedizioni) per vendere al cliente finale e tenervi il margine.',
       },
       {
+        icon: AppWindow,
         title: 'Web app su misura',
         description:
           'Quando lo strumento che serve non esiste in commercio, lo costruiamo da zero sul vostro processo.',
       },
       {
+        icon: Smartphone,
         title: 'App mobile',
         description:
           'Lo strumento in tasca al cliente o a chi lavora sul campo, come app sugli store o web app installabile.',
       },
       {
+        icon: ShoppingCart,
         title: 'Area e-commerce B2B',
         description:
           'Login, listini dedicati per cliente, quantità minime e riordino: far comprare i clienti business, non solo ordinare.',
       },
       {
+        icon: Wine,
         title: 'Wine club e abbonamenti',
         description:
           'Il meccanismo di ricavo ricorrente: iscrizione, pagamenti periodici, gestione membri e spedizioni.',
       },
       {
+        icon: Gift,
         title: 'Fedeltà e gift card',
         description:
           'Punti, buoni regalo e premi che fanno tornare il cliente e alzano lo scontrino medio.',
       },
       {
+        icon: BookOpen,
         title: 'Esperienze digitali e QR storytelling',
         description:
           'Un QR sulla bottiglia che apre la storia del prodotto e un modo per comprare o lasciare il contatto.',
       },
       {
+        icon: Ticket,
         title: 'Vendita esperienze online',
         description:
           'Tour e degustazioni prenotabili e pagabili online, con posti e calendario gestiti.',
@@ -168,31 +216,37 @@ export const PILLARS: Pillar[] = [
       'Nessuna innovazione digitale si fa senza una degna base: la mettiamo in piedi e la manteniamo, così il vostro lavoro non si ferma mai.',
     items: [
       {
+        icon: Globe,
         title: 'Sito e presenza online',
         description:
           'Il canale da cui arrivano richieste vere: contatti, ordini e prenotazioni. Non una brochure ferma.',
       },
       {
+        icon: Server,
         title: 'Hosting, dominio ed email',
         description:
           'Dominio, hosting, caselle e le email di sistema, messi in piedi e gestiti da noi.',
       },
       {
+        icon: Wrench,
         title: 'Manutenzione e continuità',
         description:
           'Dopo il lancio restiamo il riferimento per correzioni, aggiornamenti ed evoluzioni, a pacchetti di ore.',
       },
       {
+        icon: Cloud,
         title: 'Infrastruttura e deploy',
         description:
           'Cloud, backup e rilasci automatici: aggiornamenti online in sicurezza e senza downtime.',
       },
       {
+        icon: ShieldCheck,
         title: 'Sicurezza, performance e GDPR',
         description:
           'Audit, ottimizzazioni, backup e messa a norma su cookie e dati personali.',
       },
       {
+        icon: Search,
         title: 'SEO tecnica e analytics',
         description:
           'La parte tecnica per farsi trovare su Google e capire da dove arrivano i visitatori.',

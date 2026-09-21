@@ -92,7 +92,7 @@ export default function TeamSteps() {
                   style={{ gridRow: `${i + 1}` }}
                 >
                   <Reveal delay={i * 0.06}>
-                    <article className="group relative flex gap-5 rounded-3xl border border-cw-black/10 bg-white/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cw-secondary/40 hover:shadow-lg md:p-7">
+                    <article className="group relative flex gap-5 rounded-4xl border border-cw-black/15 bg-white/60 p-6 transition-colors hover:border-cw-secondary md:p-7">
                       <div className="flex shrink-0 flex-col items-center">
                         <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-cw-secondary/15 text-cw-secondary">
                           <Icon size={26} />

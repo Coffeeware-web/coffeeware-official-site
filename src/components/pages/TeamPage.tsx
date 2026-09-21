@@ -82,7 +82,7 @@ export default function TeamPage() {
             <div className="grid gap-8 sm:grid-cols-2">
               {MEMBERS.map((m, i) => (
                 <Reveal key={m.name} delay={i * 0.08}>
-                  <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-cw-black/10 bg-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-cw-secondary/40 hover:shadow-lg">
+                  <article className="group flex h-full flex-col overflow-hidden rounded-4xl border border-cw-black/15 bg-white/60 transition-colors hover:border-cw-secondary">
                     {/* Member photo (with placeholder fallback) */}
                     <div className="relative flex h-72 items-center justify-center overflow-hidden bg-cw-primary/10 transition-[height] duration-500 ease-out group-hover:h-96">
                       {m.photo ? (

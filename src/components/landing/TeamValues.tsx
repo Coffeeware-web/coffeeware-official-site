@@ -127,7 +127,7 @@ export default function TeamValues() {
                         scale: i === active ? 1 : 0.96,
                       }}
                       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="rounded-3xl border border-cw-black/10 bg-white/70 p-8 shadow-sm md:p-10"
+                      className="rounded-4xl border border-cw-black/15 bg-white/60 p-8 transition-colors hover:border-cw-secondary md:p-10"
                     >
                       <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-cw-secondary/15 text-cw-secondary">
                         <Icon size={26} />
