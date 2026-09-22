@@ -25,3 +25,8 @@ server/.env
 *.njsproj
 *.sln
 *.sw?
+
+# React Router framework mode
+.react-router/
+build
+.wrangler/

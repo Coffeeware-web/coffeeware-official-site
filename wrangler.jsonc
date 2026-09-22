@@ -2,7 +2,12 @@
   "name": "coffeeware-site",
   "compatibility_date": "2026-07-24",
   "assets": {
-    "directory": "./dist",
+    "directory": "./build/client",
+    // Serve /servizi directly from servizi/index.html instead of redirecting to
+    // /servizi/, so the served URL matches the <link rel="canonical"> that
+    // src/components/seo/Seo.tsx emits.
+    "html_handling": "drop-trailing-slash",
+    // Only reached by paths with no prerendered HTML.
     "not_found_handling": "single-page-application"
   }
 }

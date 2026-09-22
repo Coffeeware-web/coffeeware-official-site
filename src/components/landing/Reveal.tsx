@@ -25,10 +25,15 @@ export default function Reveal({
 }: RevealProps) {
   const Comp = MotionMap[as]
   return (
+    // No opacity in `initial`: whileInView only fires once an element actually
+    // enters the viewport, so anything below the fold would sit at opacity 0 in
+    // a crawler's snapshot of the page at scroll 0 — invisible to indexing, and
+    // discounted as hidden text where it is picked up. The slide alone reads as
+    // a reveal while leaving the copy readable at all times.
     <Comp
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
     >

@@ -1,23 +1,12 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { reactRouter } from '@react-router/dev/vite'
 import tailwindcss from '@tailwindcss/vite'
-import Sitemap from 'vite-plugin-sitemap'
-
-const pages = [
-  '/servizi',
-  '/team',
-  '/contatti',
-  '/prenota',
-  '/privacy',
-]
 
 export default defineConfig({
   plugins: [
-    react(),
+    // reactRouter() provides the React plugin itself (JSX + Fast Refresh), so
+    // @vitejs/plugin-react must not be added alongside it.
+    reactRouter(),
     tailwindcss(),
-    Sitemap({
-      hostname: 'https://coffeewaredesigns.com',
-      dynamicRoutes: pages,
-    }),
   ],
 })

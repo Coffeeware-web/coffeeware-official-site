@@ -11,12 +11,10 @@ function TopicBlock({ pillar, index }: { pillar: Pillar; index: number }) {
   })
   // Progress bar fills as the right column scrolls through the sub-services.
   const fill = useTransform(scrollYProgress, [0, 1], ['8%', '100%'])
-  // Fade the sticky title in as the block enters and out as it leaves.
-  const titleOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.12, 0.85, 1],
-    [0, 1, 1, 0],
-  )
+  // Lift the sticky title into place as the block enters. Deliberately no
+  // opacity here: crawlers snapshot the page at scroll 0 without scrolling, so
+  // anything tied to scroll progress would be captured (and indexed) at
+  // opacity 0. Transforms move the text, they never hide it.
   const titleY = useTransform(scrollYProgress, [0, 0.12], [24, 0])
   const Icon = pillar.icon
 
@@ -27,7 +25,7 @@ function TopicBlock({ pillar, index }: { pillar: Pillar; index: number }) {
     >
       {/* Left: sticky title column */}
       <motion.div
-        style={{ opacity: titleOpacity, y: titleY }}
+        style={{ y: titleY }}
         className="md:sticky md:top-28 md:h-fit md:self-start"
       >
         <span className="inline-flex items-center gap-2 rounded-full bg-cw-secondary px-4 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white">
@@ -59,28 +57,28 @@ function TopicBlock({ pillar, index }: { pillar: Pillar; index: number }) {
       {/* Right: vertical scroll of specific services */}
       <div className="flex flex-col gap-5">
         {pillar.items.map((item) => (
-          <FadeCard key={item.title} item={item} flag={pillar.flag} />
+          <ServiceCard key={item.title} item={item} flag={pillar.flag} />
         ))}
       </div>
     </div>
   )
 }
 
-function FadeCard({ item, flag }: { item: SubService; flag?: boolean }) {
+function ServiceCard({ item, flag }: { item: SubService; flag?: boolean }) {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   })
-  // Fade each card in as it enters the viewport and out as it leaves.
-  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0])
+  // Drift each card as it travels through the viewport. See TopicBlock for why
+  // the opacity fade that used to live here is gone.
   const y = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [40, 0, 0, -40])
   const Icon = item.icon
 
   return (
     <motion.article
       ref={ref}
-      style={{ opacity, y }}
+      style={{ y }}
       className="group rounded-4xl border border-cw-black/15 bg-white/60 p-6 transition-colors hover:border-cw-secondary md:p-6"
     >
       <div className="flex items-start gap-4">
