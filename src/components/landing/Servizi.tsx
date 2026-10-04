@@ -62,10 +62,10 @@ export default function Servizi() {
     <section id="servizi" className="scroll-mt-24 bg-cw-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="">
-          <h2 className="text-balance font-display font-bold text-4xl text-cw-black md:text-4xl">
+          <h2 className="text-balance font-display font-bold text-4xl leading-[1.1] text-cw-black md:text-5xl">
             Cosa possiamo costruire per voi.
           </h2>
-          <h2 className="mt-1 text-balance font-display font-semibold text-4xl md:text-4xl text-cw-secondary">
+          <h2 className="mt-1 text-balance font-display font-semibold text-4xl leading-[1.1] md:text-5xl text-cw-secondary">
             I tre pilastri del nostro lavoro;
           </h2>
           <p className="mt-5 max-w-4xl text-balance text-lg leading-relaxed text-cw-gray">
@@ -156,10 +156,10 @@ export default function Servizi() {
   }
 
   return (
-      <section id="servizi" className="scroll-mt-24 bg-cw-white py-30 md:py-28">
+      <section id="servizi" className="scroll-mt-24 bg-cw-white pt-30 pb-15 md:pt-28 md:pb-15">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <Reveal>
-            <h2 className="mb-20 text-center font-display font-bold text-4xl text-cw-black md:text-4xl">
+            <h2 className="mb-20 text-center font-display font-bold text-4xl leading-[1.1] text-cw-black md:text-5xl">
               Cosa possiamo costruire per voi<span className={"text-cw-secondary"}>;</span>
             </h2>
           </Reveal>

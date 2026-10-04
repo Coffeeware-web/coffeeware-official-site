@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { useEffect, useState } from 'react'
-import { motion, useReducedMotion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import Reveal from './Reveal'
 import PenUnderline from './PenUnderline'
 
@@ -18,23 +18,14 @@ const PAIN_POINTS: { before: string; mark: string }[] = [
 
 const INTERVAL = 2800
 
-const HALF = Math.floor(PAIN_POINTS.length / 2)
-
-// Posizione di una frase rispetto a quella attiva: 0 al centro, -1 sopra,
-// +1 sotto. Il giro è chiuso, quindi dopo l'ultima si riparte dalla prima.
-function offsetFrom(i: number, index: number) {
-  const n = PAIN_POINTS.length
-  return ((((i - index + HALF) % n) + n) % n) - HALF
-}
-
-function Marker({ children, on }: { children: ReactNode; on: boolean }) {
+function Marker({ children }: { children: ReactNode }) {
   return (
     <span className="relative inline-block">
       <motion.span
         aria-hidden
-        initial={false}
-        animate={{ scaleX: on ? 1 : 0 }}
-        transition={{ duration: 0.55, delay: on ? 0.35 : 0, ease: 'easeOut' }}
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.55, delay: 0.3, ease: 'easeOut' }}
         className="absolute inset-x-[-0.15em] bottom-[0.05em] top-[45%] z-0 origin-left rounded-[2px] bg-cw-secondary/25"
       />
       <span className="relative z-10">{children}</span>
@@ -77,36 +68,54 @@ export default function IntroProblema() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <p className="sr-only" aria-live="polite">
-            {point.before}
-            {point.mark}
-          </p>
-
-          {/* Rullo: la frase attiva al centro, la precedente sopra e la
-              successiva sotto, rimpicciolite e sbiadite. `--row` è il passo
-              fra una frase e l'altra: va tenuto abbastanza alto da reggere
-              una frase su due righe senza toccare le vicine. */}
+          {/* Altezza minima pari alla frase più lunga andata a capo, così il
+              resto della sezione non salta quando cambia il testo. */}
           <div
-            aria-hidden
-            className="relative mt-10 h-[calc(var(--row)*2.7)] overflow-hidden [--row:5.5rem] [mask-image:linear-gradient(to_bottom,transparent,black_22%,black_78%,transparent)] md:[--row:4.75rem]"
+            className="mt-12 flex min-h-[7.5rem] items-center justify-center sm:min-h-[5rem]"
+            aria-live="polite"
           >
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={index}
+                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduce ? { opacity: 0 } : { opacity: 0, y: -14 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="text-balance font-display text-3xl font-medium leading-snug text-cw-black md:text-4xl"
+              >
+                {point.before}
+                <Marker>{point.mark}</Marker>
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-1.5">
             {PAIN_POINTS.map((p, i) => {
-              const offset = offsetFrom(i, index)
-              const active = offset === 0
+              const active = i === index
               return (
-                <p
+                <button
                   key={p.mark}
-                  className="absolute inset-x-0 top-1/2 text-balance font-display text-3xl font-medium leading-snug text-cw-black transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none sm:text-3xl md:text-4xl"
-                  style={{
-                    transform: `translateY(calc(-50% + ${offset} * var(--row))) scale(${active ? 1 : 0.6})`,
-                    // Oltre le due vicine le frasi sono invisibili: è lì che
-                    // avviene il salto da un capo all'altro del giro.
-                    opacity: active ? 1 : Math.abs(offset) === 1 ? 0.3 : 0,
-                  }}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`Mostra: ${p.before}${p.mark}`}
+                  aria-current={active}
+                  className={`relative h-1.5 overflow-hidden rounded-full bg-cw-black/15 transition-[width] duration-300 ${
+                    active ? 'w-8' : 'w-1.5 hover:bg-cw-black/30'
+                  }`}
                 >
-                  {p.before}
-                  <Marker on={active}>{p.mark}</Marker>
-                </p>
+                  {active && (
+                    <motion.span
+                      aria-hidden
+                      initial={{ scaleX: reduce ? 1 : 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{
+                        duration: reduce ? 0 : INTERVAL / 1000,
+                        ease: 'linear',
+                      }}
+                      className="absolute inset-0 origin-left rounded-full bg-cw-secondary"
+                    />
+                  )}
+                </button>
               )
             })}
           </div>

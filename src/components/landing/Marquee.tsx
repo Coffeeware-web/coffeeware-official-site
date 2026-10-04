@@ -8,14 +8,15 @@ const WORDS = [
   'Pasticcerie',
   'Agriturismi',
   'Caseifici',
+  'Gelaterie',
+  'Consorzi'
 ]
 
 // Bottom row is rotated by 4 words so it never lines up with the top row.
-const WORDS_SHIFTED = [...WORDS.slice(4), ...WORDS.slice(0, 4)]
+const WORDS_SHIFTED = [...WORDS.slice(6, 10), ...WORDS.slice(0, 4)]
 
 function Row({ direction }: { direction: 'right' | 'left' }) {
   const words = direction === 'right' ? WORDS : WORDS_SHIFTED
-  // Duplicated once so the translateX loop is seamless.
   const sequence = [...words, ...words]
 
   return (

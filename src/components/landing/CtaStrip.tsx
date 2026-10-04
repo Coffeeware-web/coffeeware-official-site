@@ -16,7 +16,7 @@ export default function CtaStrip() {
 
       <div className="relative mx-auto max-w-4xl px-5 py-16 text-center md:px-8 md:py-24">
         <Reveal>
-          <h2 className="text-balance font-display text-3xl font-bold leading-tight text-cw-white md:text-5xl">
+          <h2 className="text-balance font-display text-4xl font-bold leading-[1.1] text-cw-white md:text-5xl">
             Facciamo due chiacchiere, beviamoci un caffè insieme
             <span className="text-cw-secondary">;</span>
           </h2>

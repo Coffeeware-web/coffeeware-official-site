@@ -9,6 +9,7 @@ import Servizi from '../landing/Servizi'
 import CoffeeBreakers from '../landing/CoffeeBreakers'
 import CtaStrip from '../landing/CtaStrip'
 import SiteFooter from '../landing/SiteFooter'
+//import IntroCaseStudies from '../landing/IntroCaseStudies'
 
 export default function HomePage() {
   const { hash } = useLocation()
@@ -38,6 +39,7 @@ export default function HomePage() {
         <IntroProblema />
         <Marquee />
         <Servizi />
+        {/*<IntroCaseStudies />*/}
         <CoffeeBreakers />
         <CtaStrip />
       </main>
